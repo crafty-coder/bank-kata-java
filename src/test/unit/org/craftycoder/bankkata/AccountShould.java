@@ -59,15 +59,15 @@ public class AccountShould {
     public void
     print_transactions() {
 
-        List<Transaction> storedTransactions = Arrays.asList(
+        Statement statement = new Statement(Arrays.asList(
                 new Transaction("01/05/2016", 100),
                 new Transaction("02/05/2016", -100)
-        );
+        ));
 
         context.checking(new Expectations() {{
-            allowing(transactions).findAll();
-            will(returnValue(storedTransactions));
-            oneOf(printer).print(storedTransactions);
+            allowing(transactions).generateStatement();
+            will(returnValue(statement));
+            oneOf(printer).print(statement);
         }});
 
         account.printStatement();

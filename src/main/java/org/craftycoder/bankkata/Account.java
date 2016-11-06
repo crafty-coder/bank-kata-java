@@ -28,6 +28,6 @@ public class Account {
     }
 
     public void printStatement() {
-        printer.print(transactions.findAll());
+        printer.print(transactions.generateStatement());
     }
 }

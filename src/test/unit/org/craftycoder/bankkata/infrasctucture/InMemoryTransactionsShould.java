@@ -1,6 +1,5 @@
 package org.craftycoder.bankkata.infrasctucture;
 
-
 import org.craftycoder.bankkata.Statement;
 import org.craftycoder.bankkata.StatementLine;
 import org.craftycoder.bankkata.Transaction;
@@ -10,7 +9,6 @@ import org.jmock.Mockery;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -77,11 +75,9 @@ public class InMemoryTransactionsShould {
         Statement statement = transactions.generateStatement();
 
         assertThat(statement.statementLines.size(), is(2));
-        assertThat(statement.statementLines.get(0), is(new StatementLine(new Transaction("01/12/2016", 100),100)));
-        assertThat(statement.statementLines.get(1), is(new StatementLine(new Transaction("02/12/2016", -100),0)));
+        assertThat(statement.statementLines.get(0), is(new StatementLine(new Transaction("01/12/2016", 100), 100)));
+        assertThat(statement.statementLines.get(1), is(new StatementLine(new Transaction("02/12/2016", -100), 0)));
     }
-
-
 
 
 }
