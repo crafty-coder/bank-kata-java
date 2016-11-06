@@ -1,4 +1,4 @@
-package org.craftycoder.bankkata.infrasctucture;
+package org.craftycoder.bankkata.infrastructure;
 
 import org.craftycoder.bankkata.Statement;
 import org.craftycoder.bankkata.Transaction;
@@ -10,8 +10,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import static org.junit.Assert.*;
 
 public class OutputPrinterShould {
 

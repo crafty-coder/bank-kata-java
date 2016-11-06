@@ -1,4 +1,4 @@
-package org.craftycoder.bankkata.infrasctucture;
+package org.craftycoder.bankkata.infrastructure;
 
 import org.junit.Test;
 

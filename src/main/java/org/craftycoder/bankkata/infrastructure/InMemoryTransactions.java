@@ -1,4 +1,4 @@
-package org.craftycoder.bankkata.infrasctucture;
+package org.craftycoder.bankkata.infrastructure;
 
 import org.craftycoder.bankkata.Statement;
 import org.craftycoder.bankkata.Transaction;
@@ -6,7 +6,6 @@ import org.craftycoder.bankkata.ports.Clock;
 import org.craftycoder.bankkata.ports.Transactions;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 

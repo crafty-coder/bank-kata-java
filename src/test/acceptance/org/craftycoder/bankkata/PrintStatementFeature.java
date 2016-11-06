@@ -1,7 +1,7 @@
 package org.craftycoder.bankkata;
 
-import org.craftycoder.bankkata.infrasctucture.InMemoryTransactions;
-import org.craftycoder.bankkata.infrasctucture.OutputPrinter;
+import org.craftycoder.bankkata.infrastructure.InMemoryTransactions;
+import org.craftycoder.bankkata.infrastructure.OutputPrinter;
 import org.craftycoder.bankkata.ports.Clock;
 import org.craftycoder.bankkata.ports.Output;
 import org.jmock.Expectations;
