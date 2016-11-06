@@ -1,8 +1,8 @@
-package org.craftycoder.bankkata;
+package org.craftycoder.bankkata.domain;
 
-import org.craftycoder.bankkata.ports.Writer;
 import org.craftycoder.bankkata.ports.Printer;
 import org.craftycoder.bankkata.ports.Transactions;
+import org.craftycoder.bankkata.ports.Writer;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;

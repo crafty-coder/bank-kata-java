@@ -1,4 +1,4 @@
-package org.craftycoder.bankkata;
+package org.craftycoder.bankkata.domain;
 
 public class StatementLine {
 

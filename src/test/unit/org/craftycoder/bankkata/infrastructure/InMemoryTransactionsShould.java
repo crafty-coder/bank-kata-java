@@ -1,8 +1,8 @@
 package org.craftycoder.bankkata.infrastructure;
 
-import org.craftycoder.bankkata.Statement;
-import org.craftycoder.bankkata.StatementLine;
-import org.craftycoder.bankkata.Transaction;
+import org.craftycoder.bankkata.domain.Statement;
+import org.craftycoder.bankkata.domain.StatementLine;
+import org.craftycoder.bankkata.domain.Transaction;
 import org.craftycoder.bankkata.ports.Clock;
 import org.jmock.Expectations;
 import org.jmock.Mockery;

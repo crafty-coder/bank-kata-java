@@ -1,5 +1,6 @@
 package org.craftycoder.bankkata;
 
+import org.craftycoder.bankkata.domain.Account;
 import org.craftycoder.bankkata.infrastructure.InMemoryTransactions;
 import org.craftycoder.bankkata.infrastructure.OutputPrinter;
 import org.craftycoder.bankkata.ports.Clock;

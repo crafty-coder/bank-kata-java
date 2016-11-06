@@ -1,4 +1,4 @@
-package org.craftycoder.bankkata;
+package org.craftycoder.bankkata.domain;
 
 import org.craftycoder.bankkata.ports.Printer;
 import org.craftycoder.bankkata.ports.Transactions;

@@ -1,7 +1,7 @@
 package org.craftycoder.bankkata.infrastructure;
 
-import org.craftycoder.bankkata.Statement;
-import org.craftycoder.bankkata.StatementLine;
+import org.craftycoder.bankkata.domain.Statement;
+import org.craftycoder.bankkata.domain.StatementLine;
 import org.craftycoder.bankkata.ports.Writer;
 import org.craftycoder.bankkata.ports.Printer;
 

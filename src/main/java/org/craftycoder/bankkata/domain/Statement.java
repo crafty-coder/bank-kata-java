@@ -1,4 +1,4 @@
-package org.craftycoder.bankkata;
+package org.craftycoder.bankkata.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;

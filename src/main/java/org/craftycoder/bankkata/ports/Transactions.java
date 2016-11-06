@@ -1,9 +1,6 @@
 package org.craftycoder.bankkata.ports;
 
-import org.craftycoder.bankkata.Statement;
-import org.craftycoder.bankkata.Transaction;
-
-import java.util.List;
+import org.craftycoder.bankkata.domain.Statement;
 
 public interface Transactions {
     void register(int amount);
