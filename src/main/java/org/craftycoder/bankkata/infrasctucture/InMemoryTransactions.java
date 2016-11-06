@@ -4,10 +4,12 @@ import org.craftycoder.bankkata.Transaction;
 import org.craftycoder.bankkata.ports.Clock;
 import org.craftycoder.bankkata.ports.Transactions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class InMemoryTransactions implements Transactions {
+
     public InMemoryTransactions(Clock clock) {
     }
 
@@ -18,6 +20,6 @@ public class InMemoryTransactions implements Transactions {
 
     @Override
     public List<Transaction> findAll() {
-        return null;
+        return new ArrayList<>();
     }
 }
