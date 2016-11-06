@@ -1,6 +1,7 @@
 package org.craftycoder.bankkata.infrasctucture;
 
 
+import org.craftycoder.bankkata.Statement;
 import org.craftycoder.bankkata.Transaction;
 import org.craftycoder.bankkata.ports.Clock;
 import org.jmock.Expectations;
@@ -30,19 +31,18 @@ public class InMemoryTransactionsShould {
     }
 
     @Test
-    public void
-    contain_no_transactions_when_created() {
+    public void contain_no_transactions_when_created() {
         List<Transaction> storedTransactions = transactions.findAll();
 
         assertThat(storedTransactions.size(), is(0));
     }
 
     @Test
-    public void
-    contain_all_the_transactions_registered() {
+    public void contain_all_the_transactions_registered() {
 
         context.checking(new Expectations() {{
-            allowing(clock).today();  will(onConsecutiveCalls(returnValue("01/12/2016"),returnValue("02/12/2016")));
+            allowing(clock).today();
+            will(onConsecutiveCalls(returnValue("01/12/2016"), returnValue("02/12/2016")));
         }});
 
         transactions.register(100);
@@ -51,8 +51,15 @@ public class InMemoryTransactionsShould {
         List<Transaction> storedTransactions = transactions.findAll();
 
         assertThat(storedTransactions.size(), is(2));
-        assertThat(storedTransactions.get(0), is(new Transaction("01/12/2016",100)));
-        assertThat(storedTransactions.get(1), is(new Transaction("02/12/2016",-100)));
+        assertThat(storedTransactions.get(0), is(new Transaction("01/12/2016", 100)));
+        assertThat(storedTransactions.get(1), is(new Transaction("02/12/2016", -100)));
     }
 
+    @Test
+    public void generate_empty_statement_when_there_is_no_transactions() {
+
+        Statement statement = transactions.generateStatement();
+        assertThat(statement.statementLines.isEmpty(), is(true));
+
+    }
 }

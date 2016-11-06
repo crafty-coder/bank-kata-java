@@ -1,5 +1,6 @@
 package org.craftycoder.bankkata.infrasctucture;
 
+import org.craftycoder.bankkata.Statement;
 import org.craftycoder.bankkata.Transaction;
 import org.craftycoder.bankkata.ports.Clock;
 import org.craftycoder.bankkata.ports.Transactions;
@@ -28,4 +29,11 @@ public class InMemoryTransactions implements Transactions {
     public List<Transaction> findAll() {
         return Collections.unmodifiableList(storedTransactions);
     }
+
+    @Override
+    public Statement generateStatement() {
+        return new Statement(new ArrayList<>());
+    }
+
+
 }
