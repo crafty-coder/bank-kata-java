@@ -1,16 +1,27 @@
 package org.craftycoder.bankkata;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Statement {
 
-   public final List<StatementLine> statementLines;
+    private static final int INITIAL_BALANCE = 0;
+    public final List<StatementLine> statementLines;
 
-    public Statement(List<StatementLine> statementLines) {
-        this.statementLines = Collections.unmodifiableList(statementLines);
+    public Statement(List<Transaction> transactions) {
+        this.statementLines = getStatementLines(transactions);
     }
 
+    private List<StatementLine> getStatementLines(List<Transaction> transactions) {
+        List<StatementLine> statementLines = new ArrayList<>();
+        int balance = INITIAL_BALANCE;
+        for (Transaction transaction : transactions) {
+            balance += transaction.amount;
+            statementLines.add(new StatementLine(transaction, balance));
+        }
+        return Collections.unmodifiableList(statementLines);
+   }
 
     @Override
     public String toString() {

@@ -22,7 +22,7 @@ public class InMemoryTransactions implements Transactions {
 
     @Override
     public void register(int amount) {
-        storedTransactions.add(new Transaction(clock.today(),amount));
+        storedTransactions.add(new Transaction(clock.today(), amount));
     }
 
     @Override
@@ -32,8 +32,7 @@ public class InMemoryTransactions implements Transactions {
 
     @Override
     public Statement generateStatement() {
-        return new Statement(new ArrayList<>());
+        return new Statement(storedTransactions);
     }
-
 
 }
