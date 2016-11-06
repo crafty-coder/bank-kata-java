@@ -1,6 +1,6 @@
 package org.craftycoder.bankkata;
 
-import org.craftycoder.bankkata.ports.Output;
+import org.craftycoder.bankkata.ports.Writer;
 import org.craftycoder.bankkata.ports.Printer;
 import org.craftycoder.bankkata.ports.Transactions;
 import org.jmock.Expectations;
@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class AccountShould {
 
     private Mockery context;
-    private Output output;
+    private Writer writer;
     private Account account;
     private Transactions transactions;
     private Printer printer;
@@ -21,7 +21,7 @@ public class AccountShould {
     @Before
     public void setUp() {
         context = new Mockery();
-        output = context.mock(Output.class);
+        writer = context.mock(Writer.class);
         transactions = context.mock(Transactions.class);
         printer = context.mock(Printer.class);
         account = new Account(transactions, printer);

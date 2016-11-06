@@ -1,5 +1,5 @@
 package org.craftycoder.bankkata.ports;
 
-public interface Output {
+public interface Writer {
     void print(String line);
 }

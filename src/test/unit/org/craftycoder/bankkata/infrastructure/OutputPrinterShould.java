@@ -2,7 +2,7 @@ package org.craftycoder.bankkata.infrastructure;
 
 import org.craftycoder.bankkata.Statement;
 import org.craftycoder.bankkata.Transaction;
-import org.craftycoder.bankkata.ports.Output;
+import org.craftycoder.bankkata.ports.Writer;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;
@@ -14,21 +14,21 @@ import java.util.Arrays;
 public class OutputPrinterShould {
 
     private Mockery context;
-    private Output output;
+    private Writer writer;
     private OutputPrinter outputPrinter;
 
     @Before
     public void setUp() throws Exception {
         context = new Mockery();
-        output = context.mock(Output.class);
-        outputPrinter = new OutputPrinter(output);
+        writer = context.mock(Writer.class);
+        outputPrinter = new OutputPrinter(writer);
     }
 
     @Test
     public void print_the_header_of_the_statement(){
 
         context.checking(new Expectations(){{
-            oneOf(output).print("DATE       | AMOUNT  | BALANCE");
+            oneOf(writer).print("DATE       | AMOUNT  | BALANCE");
         }});
 
         outputPrinter.print(new Statement(new ArrayList<>()));
@@ -41,9 +41,9 @@ public class OutputPrinterShould {
     public void print_the_full_statement_with_reverse_chronological_order(){
 
         context.checking(new Expectations(){{
-            oneOf(output).print("DATE       | AMOUNT  | BALANCE");
-            oneOf(output).print("02/05/2016 | -100.00  | 0.00");
-            oneOf(output).print("01/05/2016 | 100.00  | 100.00");
+            oneOf(writer).print("DATE       | AMOUNT  | BALANCE");
+            oneOf(writer).print("02/05/2016 | -100.00  | 0.00");
+            oneOf(writer).print("01/05/2016 | 100.00  | 100.00");
         }});
 
         Statement statement = new Statement(Arrays.asList(

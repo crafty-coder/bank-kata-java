@@ -2,7 +2,7 @@ package org.craftycoder.bankkata.infrastructure;
 
 import org.craftycoder.bankkata.Statement;
 import org.craftycoder.bankkata.StatementLine;
-import org.craftycoder.bankkata.ports.Output;
+import org.craftycoder.bankkata.ports.Writer;
 import org.craftycoder.bankkata.ports.Printer;
 
 import java.util.ArrayList;
@@ -13,10 +13,10 @@ public class OutputPrinter implements Printer {
     private static final String HEADER = "DATE       | AMOUNT  | BALANCE";
     private static final String SEPARATOR_1 = " | ";
     private static final String SEPARATOR_2 = "  | ";
-    private Output output;
+    private Writer writer;
 
-    public OutputPrinter(Output output) {
-        this.output = output;
+    public OutputPrinter(Writer writer) {
+        this.writer = writer;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class OutputPrinter implements Printer {
 
         StatementLines.stream()
                 .map(this::statementLineToString)
-                .forEachOrdered(output::print);
+                .forEachOrdered(writer::print);
     }
 
     private ArrayList<StatementLine> getStatementLinesInChronologicalOrder(Statement statement) {
@@ -53,6 +53,6 @@ public class OutputPrinter implements Printer {
     }
 
     private void printHeader() {
-        output.print(HEADER);
+        writer.print(HEADER);
     }
 }

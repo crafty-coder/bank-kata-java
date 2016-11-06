@@ -3,7 +3,7 @@ package org.craftycoder.bankkata;
 import org.craftycoder.bankkata.infrastructure.InMemoryTransactions;
 import org.craftycoder.bankkata.infrastructure.OutputPrinter;
 import org.craftycoder.bankkata.ports.Clock;
-import org.craftycoder.bankkata.ports.Output;
+import org.craftycoder.bankkata.ports.Writer;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;
@@ -12,18 +12,18 @@ import org.junit.Test;
 public class PrintStatementFeature {
 
     private Mockery context;
-    private Output output;
+    private Writer writer;
     private Clock clock;
     private Account account;
 
     @Before
     public void setUp() {
         context = new Mockery();
-        output = context.mock(Output.class);
+        writer = context.mock(Writer.class);
         clock = context.mock(Clock.class);
         account = new Account(
                 new InMemoryTransactions(clock),
-                new OutputPrinter(output)
+                new OutputPrinter(writer)
         );
     }
 
@@ -40,10 +40,10 @@ public class PrintStatementFeature {
                     returnValue("10/04/2014")
             ));
 
-            oneOf(output).print("DATE       | AMOUNT  | BALANCE");
-            oneOf(output).print("10/04/2014 | 500.00  | 1400.00");
-            oneOf(output).print("02/04/2014 | -100.00  | 900.00");
-            oneOf(output).print("01/04/2014 | 1000.00  | 1000.00");
+            oneOf(writer).print("DATE       | AMOUNT  | BALANCE");
+            oneOf(writer).print("10/04/2014 | 500.00  | 1400.00");
+            oneOf(writer).print("02/04/2014 | -100.00  | 900.00");
+            oneOf(writer).print("01/04/2014 | 1000.00  | 1000.00");
         }});
 
 
