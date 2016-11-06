@@ -1,6 +1,5 @@
 package org.craftycoder.bankkata;
 
-import org.craftycoder.bankkata.ports.Clock;
 import org.craftycoder.bankkata.ports.Output;
 import org.craftycoder.bankkata.ports.Printer;
 import org.craftycoder.bankkata.ports.Transactions;
@@ -10,7 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class AccountShould {
 
@@ -26,7 +24,7 @@ public class AccountShould {
         output = context.mock(Output.class);
         transactions = context.mock(Transactions.class);
         printer = context.mock(Printer.class);
-        account = new Account(transactions, printer, output);
+        account = new Account(transactions, printer);
     }
 
     @Test

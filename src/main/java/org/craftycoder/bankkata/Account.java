@@ -1,20 +1,14 @@
 package org.craftycoder.bankkata;
 
-import org.craftycoder.bankkata.ports.Clock;
-import org.craftycoder.bankkata.ports.Output;
 import org.craftycoder.bankkata.ports.Printer;
 import org.craftycoder.bankkata.ports.Transactions;
 
 public class Account {
 
-    private Output output;
-    private Clock clock;
     private Transactions transactions;
     private Printer printer;
 
-    public Account(Transactions transactions, Printer printer, Output output) {
-        this.output = output;
-        this.clock = clock;
+    public Account(Transactions transactions, Printer printer) {
         this.transactions = transactions;
         this.printer = printer;
     }
