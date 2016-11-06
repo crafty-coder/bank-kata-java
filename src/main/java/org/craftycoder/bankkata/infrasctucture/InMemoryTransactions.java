@@ -26,12 +26,6 @@ public class InMemoryTransactions implements Transactions {
     }
 
     @Override
-    @Deprecated
-    public List<Transaction> findAll() {
-        return Collections.unmodifiableList(storedTransactions);
-    }
-
-    @Override
     public Statement generateStatement() {
         return new Statement(storedTransactions);
     }
