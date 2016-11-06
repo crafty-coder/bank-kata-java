@@ -1,5 +1,6 @@
 package org.craftycoder.bankkata;
 
+import org.craftycoder.bankkata.infrasctucture.InMemoryTransactions;
 import org.craftycoder.bankkata.ports.Clock;
 import org.craftycoder.bankkata.ports.Output;
 import org.craftycoder.bankkata.ports.Printer;
@@ -22,7 +23,9 @@ public class PrintStatementFeature {
     public void setUp() {
         context = new Mockery();
         output = context.mock(Output.class);
+        printer = context.mock(Printer.class);
         clock = context.mock(Clock.class);
+        transactions = new InMemoryTransactions(clock);
         account = new Account(transactions, printer, output, clock);
     }
 
