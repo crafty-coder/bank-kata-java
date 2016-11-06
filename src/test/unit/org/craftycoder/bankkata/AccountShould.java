@@ -16,7 +16,6 @@ public class AccountShould {
 
     private Mockery context;
     private Output output;
-    private Clock clock;
     private Account account;
     private Transactions transactions;
     private Printer printer;
@@ -25,10 +24,9 @@ public class AccountShould {
     public void setUp() {
         context = new Mockery();
         output = context.mock(Output.class);
-        clock = context.mock(Clock.class);
         transactions = context.mock(Transactions.class);
         printer = context.mock(Printer.class);
-        account = new Account(transactions, printer, output, clock);
+        account = new Account(transactions, printer, output);
     }
 
     @Test

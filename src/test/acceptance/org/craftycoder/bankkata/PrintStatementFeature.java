@@ -26,7 +26,7 @@ public class PrintStatementFeature {
         printer = context.mock(Printer.class);
         clock = context.mock(Clock.class);
         transactions = new InMemoryTransactions(clock);
-        account = new Account(transactions, printer, output, clock);
+        account = new Account(transactions, printer, output);
     }
 
     @Test

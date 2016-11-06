@@ -12,7 +12,7 @@ public class Account {
     private Transactions transactions;
     private Printer printer;
 
-    public Account(Transactions transactions, Printer printer, Output output, Clock clock) {
+    public Account(Transactions transactions, Printer printer, Output output) {
         this.output = output;
         this.clock = clock;
         this.transactions = transactions;
