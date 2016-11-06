@@ -38,6 +38,19 @@ public class AccountShould {
         context.assertIsSatisfied();
     }
 
+    @Test
+    public void
+    register_withdraw() {
+
+        context.checking(new Expectations() {{
+            oneOf(transactions).register(-100);
+        }});
+
+        account.withdraw(100);
+
+        context.assertIsSatisfied();
+    }
+
 
 
 

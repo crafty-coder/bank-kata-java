@@ -21,7 +21,7 @@ public class Account {
     }
 
     public void withdraw(int amount) {
-
+        transactions.register(-amount);
     }
 
     public void printStatement() {
