@@ -8,7 +8,7 @@ import org.jmock.Mockery;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PrintStatementFeature {
+public class AccountShould {
 
     private Mockery context;
     private Output output;
@@ -21,37 +21,24 @@ public class PrintStatementFeature {
         context = new Mockery();
         output = context.mock(Output.class);
         clock = context.mock(Clock.class);
+        transactions = context.mock(Transactions.class);
         account = new Account(transactions, output, clock);
     }
 
     @Test
     public void
-    print_statement_with_all_transactions_in_chronological_order() {
+    register_deposits() {
 
         context.checking(new Expectations() {{
-
-            allowing(clock).today(); will(onConsecutiveCalls(
-                    returnValue("01/04/2014"),
-                    returnValue("02/04/2014"),
-                    returnValue("10/04/2014")
-            ));
-
-            oneOf(output).print("DATE       | AMOUNT  | BALANCE");
-            oneOf(output).print("10/04/2014 | 500.00  | 1400.00");
-            oneOf(output).print("02/04/2014 | -100.00 | 900.00");
-            oneOf(output).print("01/04/2014 | 1000.00 | 1000.00");
+            oneOf(transactions).register(100);
         }});
 
-
-        account.deposit(1000);
-        account.withdraw(100);
         account.deposit(100);
 
-        account.printStatement();
-
         context.assertIsSatisfied();
-
     }
+
+
 
 
 }
