@@ -2,6 +2,7 @@ package org.craftycoder.bankkata;
 
 import org.craftycoder.bankkata.ports.Clock;
 import org.craftycoder.bankkata.ports.Output;
+import org.craftycoder.bankkata.ports.Printer;
 import org.craftycoder.bankkata.ports.Transactions;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
@@ -15,13 +16,14 @@ public class PrintStatementFeature {
     private Clock clock;
     private Account account;
     private Transactions transactions;
+    private Printer printer;
 
     @Before
     public void setUp() {
         context = new Mockery();
         output = context.mock(Output.class);
         clock = context.mock(Clock.class);
-        account = new Account(transactions, output, clock);
+        account = new Account(transactions, printer, output, clock);
     }
 
     @Test

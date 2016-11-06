@@ -4,7 +4,6 @@ import org.craftycoder.bankkata.Transaction;
 
 import java.util.List;
 
-public interface Transactions {
-    void register(int amount);
-    List<Transaction> findAll();
+public interface Printer {
+    void print(List<Transaction> storedTransactions);
 }
